@@ -1,0 +1,43 @@
+DROP TABLE IF EXISTS lessons CASCADE;
+DROP TABLE IF EXISTS students CASCADE;
+DROP TABLE IF EXISTS educators CASCADE;
+DROP TABLE IF EXISTS subjects CASCADE;
+DROP TABLE IF EXISTS learning_style CASCADE;
+
+
+CREATE TABLE learning_style (
+id INT NOT NULL PRIMARY KEY,
+learning_style VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE subjects (
+id INT NOT NULL PRIMARY KEY,
+subject_name VARCHAR(255) NOT NULL,
+learning_style_id INT NOT NULL REFERENCES learning_style(id) ON DELETE CASCADE
+);
+
+CREATE TABLE students (
+id INT NOT NULL PRIMARY KEY,
+first_name VARCHAR(255) NOT NULL,
+last_name VARCHAR(255) NOT NULL,
+comments TEXT,
+subject_id INT NOT NULL REFERENCES subjects(id) ON DELETE CASCADE,
+learning_style_id INT NOT NULL REFERENCES learning_style(id) ON DELETE CASCADE
+);
+
+CREATE TABLE educators (
+id INT NOT NULL PRIMARY KEY,
+first_name VARCHAR(255) NOT NULL,
+last_name VARCHAR(255) NOT NULL,
+subject_id INT NOT NULL REFERENCES subjects(id) ON DELETE CASCADE,
+learning_style_id INT NOT NULL REFERENCES learning_style(id) ON DELETE CASCADE
+);
+
+CREATE TABLE lessons (
+id INT NOT NULL PRIMARY KEY,
+lesson_date DATE NOT NULL,
+lesson_time TIME NOT NULL,
+subject_id INT NOT NULL REFERENCES subjects(id) ON DELETE CASCADE,
+educator_id INT NOT NULL REFERENCES educators(id) ON DELETE CASCADE,
+learning_style_id INT NOT NULL REFERENCES learning_style(id) ON DELETE CASCADE
+);
