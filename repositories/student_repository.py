@@ -59,3 +59,43 @@ def delete(id):
     sql = "DELETE FROM student WHERE id = %s"
     values = ['id']
     run_sql(sql, values)
+
+def update(student):
+    sql = "UPDATE students SET (first_name, last_name, subject_id, learning_style_id, comment) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    values = [student.first_name, student.last_name,
+              student.subject.id, student.learning_style.id, student.comment, student.id]
+    run_sql(sql, values)
+
+# search for a student (pseudocode)
+# define a function that will take in a search parameter. 
+# assign an empty list to the variable students.
+# sql query will search the students table for a match (using the LIKE operator).
+# each student that matches the criteria will be added to the list (for loop).
+# function will return the list of students that match the search parameter.
+
+def search_for_student(student_name):
+    students = []
+
+    sql = "SELECT * FROM students WHERE first_name LIKE %s OR last_name LIKE %s"
+    values = [f'%{student_name}%', f'%{student_name}%']
+    results = run_sql(sql, values)
+
+    for row in results:
+        subject = subject_repository.select(row['subject_id'])
+        learning_style = learning_style_repository.select(row['learning_style_id'])
+        student = Student(row['first_name'], row['last_name'], subject, learning_style, row['comment'])
+        students.append(student)
+    return students
+
+def subjects_for_student(student):
+    subjects = []
+
+    sql = "SELECT subjects.* FROM subjects INNER JOIN students ON students.subject.id = subjects.id WHERE id = %s"
+    values = [student.id]
+    results = run_sql(sql,values)
+
+    for row in results:
+        learning_style = learning_style_repository.select(row['learning_style_id'])
+        subject = Subject(learning_style, row['subject_name'], row['id'])
+        subjects.append(subject)
+    return subjects

@@ -21,23 +21,23 @@ id SERIAL PRIMARY KEY,
 first_name VARCHAR(255) NOT NULL,
 last_name VARCHAR(255) NOT NULL,
 comment TEXT,
-subject_id INT NOT NULL REFERENCES subjects(id) ON DELETE CASCADE,
-learning_style_id INT NOT NULL REFERENCES learning_styles(id) ON DELETE CASCADE
+subject_id INT REFERENCES subjects(id) ON DELETE CASCADE,
+learning_style_id INT REFERENCES learning_styles(id) ON DELETE CASCADE
 );
 
 CREATE TABLE educators (
 id SERIAL PRIMARY KEY,
 first_name VARCHAR(255) NOT NULL,
 last_name VARCHAR(255) NOT NULL,
-subject_id INT NOT NULL REFERENCES subjects(id) ON DELETE CASCADE,
-learning_style_id INT NOT NULL REFERENCES learning_styles(id) ON DELETE CASCADE
+subject_id INT REFERENCES subjects(id) ON DELETE CASCADE,
+learning_style_id INT REFERENCES learning_styles(id) ON DELETE CASCADE
 );
 
 CREATE TABLE lessons (
 id SERIAL PRIMARY KEY,
 date DATE NOT NULL,
 time TIME NOT NULL,
-student_id INT NOT NULL REFERENCES students(id) ON DELETE CASCADE,
+student_id INT REFERENCES students(id) ON DELETE CASCADE,
 subject_id INT NOT NULL REFERENCES subjects(id) ON DELETE CASCADE,
 educator_id INT NOT NULL REFERENCES educators(id) ON DELETE CASCADE,
 learning_style_id INT NOT NULL REFERENCES learning_styles(id) ON DELETE CASCADE

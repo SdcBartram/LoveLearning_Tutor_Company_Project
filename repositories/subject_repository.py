@@ -49,3 +49,8 @@ def delete(id):
     sql = "DELETE FROM subject WHERE id = %s"
     values = ['id']
     run_sql(sql, values)
+
+def update(subject):
+    sql = "UPDATE subjects SET (subject_name, learning_style_id) = (%s, %s) WHERE id = %s"
+    values = [subject.subject_name, subject.learning_style.id, subject.id]
+    run_sql(sql, values)

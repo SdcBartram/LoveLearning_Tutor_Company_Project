@@ -10,7 +10,8 @@ import repositories.learning_style_repository as learning_style_repository
 
 def save(educator):
     sql = "INSERT INTO educators (first_name, last_name, subject_id, learning_style_id) VALUES (%s, %s, %s, %s) RETURNING id"
-    values = [educator.first_name, educator.last_name, educator.subject.id, educator.learning_style.id]
+    values = [educator.first_name, educator.last_name,
+              educator.subject.id, educator.learning_style.id]
     results = run_sql(sql, values)
     educator.id = results[0]['id']
     return educator
@@ -26,9 +27,11 @@ def select_all():
         subject = subject_repository.select(row['subject_id'])
         learning_style = learning_style_repository.select(
             row['learning_style_id'])
-        educator = Educator(subject, learning_style, row['first_name'], row['last_name'], row['id'])
+        educator = Educator(subject, learning_style,
+                            row['first_name'], row['last_name'], row['id'])
         educators.append(educator)
     return educator
+
 
 def select(id):
     educator = None
@@ -39,9 +42,12 @@ def select(id):
     if result is not None:
         for row in result:
             subject = subject_repository.select(row['subject_id'])
-            learning_style = learning_style_repository.select(row['learning_style_id'])
-        educator = Educator(subject, learning_style, row['first_name'], row['last_name'], row['id'])
+            learning_style = learning_style_repository.select(
+                row['learning_style_id'])
+        educator = Educator(subject, learning_style,
+                            row['first_name'], row['last_name'], row['id'])
     return educator
+
 
 def delete_all():
     sql = "DELETE FROM educators"
@@ -51,4 +57,11 @@ def delete_all():
 def delete(id):
     sql = "DELETE FROM educator WHERE id = %s"
     values = ['id']
+    run_sql(sql, values)
+
+
+def update(educator):
+    sql = "UPDATE educators SET (first_name, last_name, subject_id, learning_style_id) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [educator.first_name, educator.last_name,
+              educator.subject.id, educator.learning_style.id, educator.id]
     run_sql(sql, values)
