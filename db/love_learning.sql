@@ -6,27 +6,27 @@ DROP TABLE IF EXISTS learning_styles CASCADE;
 
 
 CREATE TABLE learning_styles (
-id INT NOT NULL PRIMARY KEY,
+id SERIAL PRIMARY KEY,
 learning_style VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE subjects (
-id INT NOT NULL PRIMARY KEY,
+id SERIAL PRIMARY KEY,
 subject_name VARCHAR(255) NOT NULL,
 learning_style_id INT NOT NULL REFERENCES learning_styles(id) ON DELETE CASCADE
 );
 
 CREATE TABLE students (
-id INT NOT NULL PRIMARY KEY,
+id SERIAL PRIMARY KEY,
 first_name VARCHAR(255) NOT NULL,
 last_name VARCHAR(255) NOT NULL,
-comments TEXT,
+comment TEXT,
 subject_id INT NOT NULL REFERENCES subjects(id) ON DELETE CASCADE,
 learning_style_id INT NOT NULL REFERENCES learning_styles(id) ON DELETE CASCADE
 );
 
 CREATE TABLE educators (
-id INT NOT NULL PRIMARY KEY,
+id SERIAL PRIMARY KEY,
 first_name VARCHAR(255) NOT NULL,
 last_name VARCHAR(255) NOT NULL,
 subject_id INT NOT NULL REFERENCES subjects(id) ON DELETE CASCADE,
@@ -34,9 +34,10 @@ learning_style_id INT NOT NULL REFERENCES learning_styles(id) ON DELETE CASCADE
 );
 
 CREATE TABLE lessons (
-id INT NOT NULL PRIMARY KEY,
-lesson_date DATE NOT NULL,
-lesson_time TIME NOT NULL,
+id SERIAL PRIMARY KEY,
+date DATE NOT NULL,
+time TIME NOT NULL,
+student_id INT NOT NULL REFERENCES students(id) ON DELETE CASCADE,
 subject_id INT NOT NULL REFERENCES subjects(id) ON DELETE CASCADE,
 educator_id INT NOT NULL REFERENCES educators(id) ON DELETE CASCADE,
 learning_style_id INT NOT NULL REFERENCES learning_styles(id) ON DELETE CASCADE

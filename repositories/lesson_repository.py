@@ -15,7 +15,7 @@ def save(lesson):
     sql = "INSERT INTO lessons (date, time, educator_id, student_id, subject_id, learning_style_id) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id"
     values = [lesson.date, lesson.time, lesson.educator.id, lesson.student.id, lesson.subject.id, lesson.learning_style.id]
     results = run_sql(sql, values)
-    lesson.id = results[0][id]
+    lesson.id = results[0]['id']
     return lesson
 
 def select_all():
@@ -36,7 +36,7 @@ def select_all():
 def select(id):
     lesson = None
     sql = "SELECT * FROM lessons WHERE id = %s"
-    values = [id]
+    values = ['id']
     result = run_sql(sql, values)[0]
 
     if result is not None:
@@ -54,5 +54,5 @@ def delete_all():
 
 def delete(id):
     sql = "DELETE FROM lessons WHERE id = %s"
-    values = [id]
+    values = ['id']
     run_sql(sql, values)

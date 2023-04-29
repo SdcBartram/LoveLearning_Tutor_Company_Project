@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 from models.educator import Educator
 from models.learning_style import LearningStyle
@@ -30,7 +30,7 @@ educator_repository.save(educator1)
 student1 = Student("Sharky", "George", subject1, learning_style1, "Diligent, all intervention tasks completed")
 student_repository.save(student1)
 
-lesson1date = (2023, 5, 23)
+lesson1date = datetime(2023, 5, 23)
 lesson1time = datetime.strptime('15:00', '%H:%M').time()
 lesson1 = Lesson(lesson1date, lesson1time, educator1, student1, subject1, learning_style1)
 lesson_repository.save(lesson1)

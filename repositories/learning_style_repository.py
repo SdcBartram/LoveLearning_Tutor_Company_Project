@@ -2,11 +2,23 @@ from db.run_sql import run_sql
 
 from models.learning_style import LearningStyle
 
+
+# def save(learning_style):
+#     sql = "INSERT INTO learning_styles (learning_style) VALUES (%s) RETURNING id"
+#     values = [learning_style.learning_style]
+#     print("SQL: ", sql)
+#     print("VALUES: ", values)
+#     results = run_sql(sql, values)
+#     print("RESULTS: ", results)
+#     learning_style.id = results[0]['id']
+#     return learning_style
+
+
 def save(learning_style):
-    sql = "INSERT INTO learning_styles(learning_style) VALUES (%s) RETURNING id"
+    sql = "INSERT INTO learning_styles (learning_style) VALUES (%s) RETURNING id"
     values = [learning_style.learning_style]
     results = run_sql(sql, values)
-    learning_style.id = results[0][id]
+    learning_style.id = results[0]['id']
     return learning_style
 
 def select_all():
@@ -23,7 +35,7 @@ def select_all():
 def select(id):
     learning_style = None
     sql = "SELECT * FROM learning_styles WHERE id = %s"
-    values = [id]
+    values = ['id']
     result = run_sql(sql, values)[0]
 
     if result is not None:
@@ -36,6 +48,6 @@ def delete_all():
 
 def delete(id):
     sql = "DELETE FROM learning_styles WHERE id = %s"
-    values = [id]
+    values = ['id']
     run_sql(sql, values)
 

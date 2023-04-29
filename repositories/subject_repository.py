@@ -11,7 +11,7 @@ def save(subject):
     sql = "INSERT INTO subjects (subject_name, learning_style_id) VALUES (%s, %s) RETURNING id"
     values = [subject.subject_name, subject.learning_style.id]
     results = run_sql(sql, values)
-    subject.id = results[0][id]
+    subject.id = results[0]['id']
     return subject
 
 
@@ -30,7 +30,7 @@ def select_all():
 def select(id):
     subject = None
     sql = "SELECT * FROM subjects WHERE id = %s"
-    values = [id]
+    values = ['id']
     result = run_sql(sql, values)[0]
 
     if result is not None:
@@ -47,5 +47,5 @@ def delete_all():
 
 def delete(id):
     sql = "DELETE FROM subject WHERE id = %s"
-    values = [id]
+    values = ['id']
     run_sql(sql, values)
