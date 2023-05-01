@@ -21,10 +21,23 @@ The app is built using only:
 
 ## Terminal commands
 
+```bash
 createdb love_learning
 
+# creates the database
+```
+
+```bash
 psql -d love_learning -f db/love_learning.sql
 
-python3 console.py  
+# runs sql file to set up tables in database
+```
 
+```bash
+python3 console.py
+
+```
+
+```bash
 flask run 
+```
