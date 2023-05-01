@@ -19,6 +19,7 @@ lesson_repository.delete_all()
 student_repository.delete_all()
 subject_repository.delete_all()
 
+
 # Add learning_styles to learning_styles table
 learning_style1 = LearningStyle("In person")
 learning_style_repository.save(learning_style1)
@@ -26,12 +27,25 @@ learning_style_repository.save(learning_style1)
 learning_style2 = LearningStyle("Online")
 learning_style_repository.save(learning_style2)
 
+# select all learning_styles
+learning_styles = learning_style_repository.select_all()
+
+
+# select learning_style by id
+learning_style_repository.select(learning_style2.id)
+
+
 # Add subjects to subjects table
 subject1 = Subject("Painting Trees", learning_style1)
 subject_repository.save(subject1)
 
 subject2 = Subject("Writing", learning_style2)
 subject_repository.save(subject2)
+
+# select all subjects
+subjects = subject_repository.select_all()
+for subject in subjects:
+    print("here is what you want", subject.subject_name)
 
 # Add educators to educators table
 educator1 = Educator("Bob", "Ross", subject1, learning_style1)
@@ -81,6 +95,9 @@ lesson2 = Lesson(lesson2date, lesson2time, educator2, None, subject2, learning_s
 lesson_repository.save(lesson2)
 lesson2.student = student2
 lesson_repository.update(lesson2)
+
+# #select all
+# educator_repository.select_all()
 
 
 

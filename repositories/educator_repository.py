@@ -65,3 +65,5 @@ def update(educator):
     values = [educator.first_name, educator.last_name,
               educator.subject.id, educator.learning_style.id, educator.id]
     run_sql(sql, values)
+
+# show subjects for educator

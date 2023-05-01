@@ -25,7 +25,7 @@ def select_all():
         learning_style = learning_style_repository.select(row['learning_style_id'])
         subject = Subject(learning_style, row['subject_name'], row['id'])
         subjects.append(subject)
-    return subject
+    return subjects
 
 def select(id):
     subject = None
