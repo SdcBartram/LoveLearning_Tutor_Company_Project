@@ -43,6 +43,22 @@ def select_all():
         lessons.append(lesson)
     return lessons
 
+def select_all_upcoming_lessons():
+    lessons = []
+
+    sql = "SELECT * FROM lessons WHERE date >= CURDATE()"
+    results = run_sql(sql)
+
+    for row in results:
+        educator = educator_repository.select(row['educator_id'])
+        student = student_repository.select(row['student_id'])
+        subject = subject_repository.select(row['subject_id'])
+        learning_style = learning_style_repository.select(
+            row['learning_style_id'])
+        lesson = Lesson(educator, student, subject, learning_style,
+                        row['date'], row['time'], row['id'])
+        lessons.append(lesson)
+    return lessons
 
 def select(id):
     lesson = None
