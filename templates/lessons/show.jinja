@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+<h1> {{lesson.subject.subject_name}}</h1> 
+
+<p> Date: {{ lesson.date }} </p>
+<p> Time: {{ lesson.time }} </p>
+<p> Educator: {{ lesson.educator.first_name }} {{lesson.educator.last_name}} </p>
+<p> {{lesson.learning_style.learning_style}} </p>
+<p><a href="/lessons/{{lesson.id}}/edit">Edit</a></p>
+<p><a href="/lessons/{{lesson.id}}/students_in_lesson">Students in Lesson</a></p>
+</div>
+{% endblock %}

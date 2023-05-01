@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> {{student.first_name}} {{student.last_name}} </h1> 
+
+<p> Comments: {{student.comment }} </p>
+
+<p><a href="/students/{{student.id}}/edit">Edit</a></p>
+
+{% endblock %}

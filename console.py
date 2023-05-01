@@ -166,5 +166,5 @@ student_in_lesson1 = lesson_repository.add_student_to_lesson(student1, lesson1)
 # select all students for a lesson
 lesson_repository.add_student_to_lesson(student2, lesson1)
 classlist = lesson_repository.students_for_lesson(lesson1)
-for student in classlist:
-    print("over here ---> ", student.first_name)
+# for student in classlist:
+#     print("over here ---> ", student.first_name)

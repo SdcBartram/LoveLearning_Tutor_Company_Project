@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<h1> Educators </h1>
+<table>
+    <tr>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Subject
+        </th>
+    </tr>
+    {% for educator in educators %}
+    <tr>
+        <td><a href="/educators/{{ educator.id }}"> {{educator.first_name}} </a></td>
+        <td> {{ educator.last_name }}</td>
+        <td> {{ educator.subject.id }}</td>
+        <td><div class="buttons">
+        
+            <form class="delete-form" action="/educators/{{ educator.id }}/delete" method="POST">
+                <button class="trash_button"><i class="fa fa-trash-o fa-3x" style="color:black" aria-hidden="true"></i></button>
+            </form>
+        </div></td>
+    </tr>
+    {% endfor %}    
+</table>
+{% endblock %}

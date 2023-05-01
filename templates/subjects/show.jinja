@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> {{subject.subject_name}} </h1> 
+
+<p> Teaching Style: {{ subject.learning_style.learning_style }}</p>
+
+<p><a href="/subjects/{{subject.id}}/edit">Edit</a></p>
+
+{% endblock %}
