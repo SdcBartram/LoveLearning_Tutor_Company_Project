@@ -22,22 +22,21 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        learning_style = learning_style_repository.select(row['learning_style_id'])
-        subject = Subject(learning_style, row['subject_name'], row['id'])
+        learning_style_id = row['learning_style_id']
+        learning_style =learning_style_repository.select(learning_style_id)
+        subject = Subject(row['subject_name'], learning_style, row['id'])
         subjects.append(subject)
     return subjects
 
 def select(id):
     subject = None
     sql = "SELECT * FROM subjects WHERE id = %s"
-    values = ['id']
+    values = [id]
     result = run_sql(sql, values)[0]
 
-    if result is not None:
-        for row in result:
-            subject = subject_repository.select(row['subject_id'])
-            learning_style = learning_style_repository.select(row['learning_style_id'])
-        subject = Subject(learning_style, row['subject_name'], row['id'])
+    if result:
+            learning_style = learning_style_repository.select(result['learning_style_id'])
+            subject = Subject(result['subject_name'], learning_style, result['id'])
     return subject
 
 def delete_all():
@@ -46,8 +45,8 @@ def delete_all():
 
 
 def delete(id):
-    sql = "DELETE FROM subject WHERE id = %s"
-    values = ['id']
+    sql = "DELETE FROM subjects WHERE id = %s"
+    values = [id]
     run_sql(sql, values)
 
 def update(subject):

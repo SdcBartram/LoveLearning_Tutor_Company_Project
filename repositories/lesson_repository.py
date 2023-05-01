@@ -1,3 +1,4 @@
+import datetime
 from db.run_sql import run_sql
 
 from models.lesson import Lesson
@@ -14,13 +15,8 @@ import repositories.lesson_repository as lesson_repository
 
 
 def save(lesson):
-    sql = "INSERT INTO lessons (date, time, educator_id, student_id, subject_id, learning_style_id) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id"
-    if lesson.student:
-        values = [lesson.date, lesson.time, lesson.educator.id,
-                  lesson.student.id, lesson.subject.id, lesson.learning_style.id]
-    else:
-        values = [lesson.date, lesson.time, lesson.educator.id,
-                  None, lesson.subject.id, lesson.learning_style.id]
+    sql = "INSERT INTO lessons (date, time, educator_id, subject_id, learning_style_id) VALUES (%s, %s, %s, %s, %s) RETURNING id"
+    values = [lesson.date, lesson.time, lesson.educator.id, lesson.subject.id, lesson.learning_style.id]
     results = run_sql(sql, values)
     lesson.id = results[0]['id']
     return lesson
@@ -34,47 +30,41 @@ def select_all():
 
     for row in results:
         educator = educator_repository.select(row['educator_id'])
-        student = student_repository.select(row['student_id'])
         subject = subject_repository.select(row['subject_id'])
         learning_style = learning_style_repository.select(
             row['learning_style_id'])
-        lesson = Lesson(educator, student, subject, learning_style,
-                        row['date'], row['time'], row['id'])
+        lesson = Lesson(row['date'], row['time'], educator, subject, learning_style, row['id'])
         lessons.append(lesson)
     return lessons
+
 
 def select_all_upcoming_lessons():
     lessons = []
 
-    sql = "SELECT * FROM lessons WHERE date >= CURDATE()"
+    sql = "SELECT * FROM lessons WHERE date > CURRENT_DATE OR (date = CURRENT_DATE AND time >= CURRENT_TIME)"
     results = run_sql(sql)
 
     for row in results:
         educator = educator_repository.select(row['educator_id'])
-        student = student_repository.select(row['student_id'])
         subject = subject_repository.select(row['subject_id'])
         learning_style = learning_style_repository.select(
             row['learning_style_id'])
-        lesson = Lesson(educator, student, subject, learning_style,
-                        row['date'], row['time'], row['id'])
+        lesson = Lesson(row['date'], row['time'], educator, subject, learning_style, row['id'])
         lessons.append(lesson)
     return lessons
+
 
 def select(id):
     lesson = None
     sql = "SELECT * FROM lessons WHERE id = %s"
-    values = ['id']
+    values = [id]
     result = run_sql(sql, values)[0]
 
-    if result is not None:
-        for row in result:
-            educator = educator_repository.select(row['educator_id'])
-            student = student_repository.select(row['student_id'])
-            subject = subject_repository.selct(row['subject_id'])
-            learning_style = learning_style_repository.select(
-                row['learning_style_id'])
-        lesson = Lesson(educator, student, subject, learning_style,
-                        row['date'], row['time'], row['id'])
+    if result:
+            educator = educator_repository.select(result['educator_id'])
+            subject = subject_repository.select(result['subject_id'])
+            learning_style = learning_style_repository.select(result['learning_style_id'])
+            lesson = Lesson(result['date'], result['time'], educator, subject, learning_style, result['id'])
     return lesson
 
 
@@ -85,28 +75,26 @@ def delete_all():
 
 def delete(id):
     sql = "DELETE FROM lessons WHERE id = %s"
-    values = ['id']
+    values = [id]
     run_sql(sql, values)
 
-# update lesson # add student to lesson
-
+def add_student_to_lesson(student, lesson):
+    sql = "INSERT INTO students_in_lessons (student_id, lesson_id) VALUES (%s, %s) RETURNING id"
+    values = [student.id, lesson.id]
+    result = run_sql(sql, values)
+    return result[0]['id']
 
 def update(lesson):
-    if lesson.student is None:
-        sql = "UPDATE lessons SET (date, time, educator_id, student_id, subject_id, learning_style_id) = (%s, %s, %s, NULL, %s, %s) WHERE id = %s"
-        values = [lesson.date, lesson.time, lesson.educator.id,
-                  lesson.subject.id, lesson.learning_style.id, lesson.id]
-    else:
-        sql = "UPDATE lessons SET (date, time, educator_id, student_id, subject_id, learning_style_id) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
-        values = [lesson.date, lesson.time, lesson.educator.id, lesson.student.id,
-                  lesson.subject.id, lesson.learning_style.id, lesson.id]
-    run_sql(sql, values)
+        sql = "UPDATE lessons SET (date, time, educator_id, subject_id, learning_style_id) = (%s, %s, %s, %s, %s) WHERE id = %s"
+        values = [lesson.date, lesson.time, lesson.educator.id, lesson.subject.id, lesson.learning_style.id, lesson.id]
+        run_sql(sql, values)
 
 
-def students_for_lesson(student):
+
+def students_for_lesson(lesson):
     classlist = []
 
-    sql = "SELECT students.* FROM students INNER JOIN lessons ON lessons.student_id = students.id WHERE lessons.id = %s"
+    sql = "SELECT students.* FROM students INNER JOIN students_in_lessons ON students.id = students_in_lessons.student_id WHERE students_in_lessons.lesson_id = %s"
     values = [lesson.id]
     results = run_sql(sql, values)
 
@@ -115,6 +103,6 @@ def students_for_lesson(student):
         learning_style = learning_style_repository.select(
             row['learning_style_id'])
         student = Student(row['first_name'], row['last_name'],
-                          subject, learning_style, row['comment'])
+                          subject, learning_style, row['comment'], row['id'])
         classlist.append(student)
     return classlist

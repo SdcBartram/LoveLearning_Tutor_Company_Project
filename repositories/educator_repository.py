@@ -27,25 +27,21 @@ def select_all():
         subject = subject_repository.select(row['subject_id'])
         learning_style = learning_style_repository.select(
             row['learning_style_id'])
-        educator = Educator(subject, learning_style,
-                            row['first_name'], row['last_name'], row['id'])
+        educator = Educator(row['first_name'], row['last_name'], subject, learning_style, row['id'])
         educators.append(educator)
-    return educator
+    return educators
 
 
 def select(id):
     educator = None
     sql = "SELECT * FROM educators WHERE id = %s"
-    values = ['id']
+    values = [id]
     result = run_sql(sql, values)[0]
 
-    if result is not None:
-        for row in result:
-            subject = subject_repository.select(row['subject_id'])
-            learning_style = learning_style_repository.select(
-                row['learning_style_id'])
-        educator = Educator(subject, learning_style,
-                            row['first_name'], row['last_name'], row['id'])
+    if result:
+            subject = subject_repository.select(result['subject_id'])
+            learning_style = learning_style_repository.select(result['learning_style_id'])
+            educator = Educator(result['first_name'], result['last_name'], subject, learning_style, result['id'])
     return educator
 
 
@@ -55,8 +51,8 @@ def delete_all():
 
 
 def delete(id):
-    sql = "DELETE FROM educator WHERE id = %s"
-    values = ['id']
+    sql = "DELETE FROM educators WHERE id = %s"
+    values = [id]
     run_sql(sql, values)
 
 
@@ -66,4 +62,15 @@ def update(educator):
               educator.subject.id, educator.learning_style.id, educator.id]
     run_sql(sql, values)
 
-# show subjects for educator
+def subjects_for_educator(educator):
+    subjects = []
+
+    sql = "SELECT subjects.* FROM subjects INNER JOIN educators ON educators.subject_id = subjects.id WHERE educators.id = %s"
+    values = [educator.id]
+    results = run_sql(sql,values)
+
+    for row in results:
+        learning_style = learning_style_repository.select(row['learning_style_id'])
+        subject = Subject(row['subject_name'], learning_style, row['id'])
+        subjects.append(subject)
+    return subjects

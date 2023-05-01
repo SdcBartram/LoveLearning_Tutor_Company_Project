@@ -1,8 +1,10 @@
+DROP TABLE IF EXISTS students_in_lessons CASCADE;
 DROP TABLE IF EXISTS lessons CASCADE;
 DROP TABLE IF EXISTS students CASCADE;
 DROP TABLE IF EXISTS educators CASCADE;
 DROP TABLE IF EXISTS subjects CASCADE;
 DROP TABLE IF EXISTS learning_styles CASCADE;
+
 
 
 CREATE TABLE learning_styles (
@@ -37,8 +39,13 @@ CREATE TABLE lessons (
 id SERIAL PRIMARY KEY,
 date DATE NOT NULL,
 time TIME NOT NULL,
-student_id INT REFERENCES students(id) ON DELETE CASCADE,
 subject_id INT NOT NULL REFERENCES subjects(id) ON DELETE CASCADE,
 educator_id INT NOT NULL REFERENCES educators(id) ON DELETE CASCADE,
 learning_style_id INT NOT NULL REFERENCES learning_styles(id) ON DELETE CASCADE
 );
+
+CREATE TABLE students_in_lessons (
+    id SERIAL PRIMARY KEY,
+    student_id INT NOT NULL REFERENCES students(id) ON DELETE CASCADE,
+    lesson_id INT NOT NULL REFERENCES lessons(id) ON DELETE CASCADE
+)

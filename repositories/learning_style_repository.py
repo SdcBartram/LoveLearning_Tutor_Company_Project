@@ -37,6 +37,6 @@ def delete_all():
 
 def delete(id):
     sql = "DELETE FROM learning_styles WHERE id = %s"
-    values = ['id']
+    values = [id]
     run_sql(sql, values)
 
