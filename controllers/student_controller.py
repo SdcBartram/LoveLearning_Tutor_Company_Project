@@ -29,3 +29,5 @@ def edit_students(id):
 def delete_educator(id):
     student_repository.delete(id)
     return redirect('/students')
+
+# student search

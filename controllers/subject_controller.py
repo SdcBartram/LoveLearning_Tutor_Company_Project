@@ -24,3 +24,8 @@ def show(id):
 def delete_subject(id):
     subject_repository.delete(id)
     return redirect('/subjects')
+
+@subjects_blueprint.route("/subjects/<id>/edit", methods=['GET'])
+def edit_subjects(id):
+    subject=subject_repository.select(id)
+    return render_template("subjects/edit.jinja", subject=subject)
