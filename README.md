@@ -18,3 +18,13 @@ The app is built using only:
 * Python
 * Flask
 * PostgreSQL and the psycopg
+
+## Terminal commands
+
+createdb love_learning
+
+psql -d love_learning -f db/love_learning.sql
+
+python3 console.py  
+
+flask run 
