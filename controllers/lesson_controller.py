@@ -23,12 +23,6 @@ def show(id):
     return render_template("lessons/show.jinja", lesson=lesson)
 
 
-@lessons_blueprint.route("/lessons/<id>/edit", methods=['GET'])
-def edit_lessons(id):
-    lesson = lesson_repository.select(id)
-    return render_template("lessons/edit.jinja", lesson=lesson)
-
-
 @lessons_blueprint.route("/lessons/<id>/delete", methods=['POST'])
 def delete_lesson(id):
     lesson_repository.delete(id)
@@ -47,6 +41,7 @@ def student_in_lesson(id):
     students = lesson_repository.students_for_lesson(lesson)
     return render_template("lessons/students_in_lesson.jinja", students=students)
 
+
 @lessons_blueprint.route("/lessons/new", methods=['GET'])
 def new_lesson():
     educators = educator_repository.select_all()
@@ -62,7 +57,34 @@ def create_lesson():
     time = request.form['time']
     educator = educator_repository.select(request.form['educator_id'])
     subject = subject_repository.select(request.form['subject_id'])
-    learning_style = learning_style_repository.select(request.form['learning_style_id'])
+    learning_style = learning_style_repository.select(
+        request.form['learning_style_id'])
     lesson = Lesson(date, time, educator, subject, learning_style)
     lesson_repository.save(lesson)
     return redirect('/lessons')
+
+
+@lessons_blueprint.route("/lessons/<id>/edit", methods=['GET'])
+def edit_lessons(id):
+    subjects = subject_repository.select_all()
+    learning_styles = learning_style_repository.select_all()
+    educators = educator_repository.select_all()
+    lesson = lesson_repository.select(id)
+    return render_template("lessons/edit.jinja", lesson=lesson, all_educators=educators, all_subjects=subjects, all_learning_styles=learning_styles)
+
+
+@lessons_blueprint.route("/lessons/<id>", methods=['POST'])
+def update_lesson(id):
+    date = request.form['date']
+    time = request.form['time']
+    subject = subject_repository.select(request.form['subject_id'])
+    learning_style = learning_style_repository.select(
+        request.form['learning_style_id'])
+    educator = educator_repository.select(request.form['educator_id'])
+    edited_lesson = Lesson(date, time, educator, subject, learning_style, id)
+    lesson_repository.update(edited_lesson)
+    return redirect('/lessons')
+
+
+# add student to lesson
+@lessons_blueprint.route("/lesson/")

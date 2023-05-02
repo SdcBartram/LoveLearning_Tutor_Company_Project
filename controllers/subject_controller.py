@@ -28,12 +28,6 @@ def delete_subject(id):
     return redirect('/subjects')
 
 
-@subjects_blueprint.route("/subjects/<id>/edit", methods=['GET'])
-def edit_subjects(id):
-    subject = subject_repository.select(id)
-    return render_template("subjects/edit.jinja", subject=subject)
-
-
 @subjects_blueprint.route("/subjects/new", methods=['GET'])
 def new_subject():
     learning_styles = learning_style_repository.select_all()
@@ -47,4 +41,20 @@ def create_subject():
         request.form['learning_style_id'])
     subject = Subject(subject_name, learning_style)
     subject_repository.save(subject)
+    return redirect('/subjects')
+
+@subjects_blueprint.route("/subjects/<id>/edit", methods=['GET'])
+def edit_subjects(id):
+    learning_styles = learning_style_repository.select_all()
+    subject = subject_repository.select(id)
+    return render_template("subjects/edit.jinja", subject=subject, all_learning_styles=learning_styles)
+
+
+@subjects_blueprint.route("/subjects/<id>", methods=['POST'])
+def update_subject(id):
+    subject_name = request.form['subject_name']
+    learning_style = learning_style_repository.select(
+        request.form['learning_style_id'])
+    edited_subject = Subject(subject_name, learning_style, id)
+    subject_repository.update(edited_subject)
     return redirect('/subjects')

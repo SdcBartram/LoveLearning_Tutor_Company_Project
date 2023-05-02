@@ -61,7 +61,8 @@ def delete(id):
 
 def update(educator):
     sql = "UPDATE educators SET (first_name, last_name, subject_id, learning_style_id) = (%s, %s, %s, %s) WHERE id = %s"
-    values = [educator.first_name, educator.last_name, educator.subject.id, educator.learning_style.id, educator.id]
+    values = [educator.first_name, educator.last_name,
+              educator.subject.id, educator.learning_style.id, educator.id]
     run_sql(sql, values)
 
 

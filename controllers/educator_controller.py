@@ -55,15 +55,14 @@ def edit_educators(id):
     return render_template("educators/edit.jinja", educator=educator, all_subjects=subjects, all_learning_styles=learning_styles)
 
 
-@educators_blueprint.route("/educators/<id>/edit", methods=['POST'])
+@educators_blueprint.route("/educators/<id>", methods=['POST'])
 def update_educator(id):
-    educator = educator_repository.select(id)
     first_name = request.form['first_name']
     last_name = request.form['last_name']
     subject = subject_repository.select(request.form['subject_id'])
     learning_style = learning_style_repository.select(
         request.form['learning_style_id'])
-    edited_educator = Educator(first_name, last_name, subject, learning_style)
+    edited_educator = Educator(first_name, last_name, subject, learning_style, id)
     educator_repository.update(edited_educator)
     return redirect('/educators')
 
