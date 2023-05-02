@@ -2,11 +2,14 @@ from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 
 from models.lesson import Lesson
+from models.student_in_lesson import StudentInLesson
 
 import repositories.lesson_repository as lesson_repository
 import repositories.subject_repository as subject_repository
 import repositories.educator_repository as educator_repository
 import repositories.learning_style_repository as learning_style_repository
+import repositories.student_repository as student_repository
+import repositories.student_in_lesson_repository as student_in_lesson_repository
 
 lessons_blueprint = Blueprint("lessons", __name__)
 
@@ -33,13 +36,6 @@ def delete_lesson(id):
 def upcoming_lessons():
     lessons = lesson_repository.select_all_upcoming_lessons()
     return render_template('/lessons/upcoming.jinja', lessons=lessons)
-
-
-@lessons_blueprint.route("/lessons/<id>/students_in_lesson")
-def student_in_lesson(id):
-    lesson = lesson_repository.select(id)
-    students = lesson_repository.students_for_lesson(lesson)
-    return render_template("lessons/students_in_lesson.jinja", students=students)
 
 
 @lessons_blueprint.route("/lessons/new", methods=['GET'])
@@ -85,6 +81,28 @@ def update_lesson(id):
     lesson_repository.update(edited_lesson)
     return redirect('/lessons')
 
+@lessons_blueprint.route("/lessons/<id>/students_in_lesson")
+def student_in_lesson(id):
+    lesson = lesson_repository.select(id)
+    students_in_lesson = lesson_repository.students_for_lesson(lesson)
+    return render_template("lessons/students_in_lesson.jinja", students_in_lesson=students_in_lesson, lesson=lesson)
 
-# add student to lesson
-@lessons_blueprint.route("/lesson/")
+
+# @lessons_blueprint.route("/lessons/<id>/add_student_to_lesson", methods=['POST'])
+# def add_student_to_lesson(id):
+#     lesson = lesson_repository.select(id)
+#     student = student_repository.select(request.form['student_id'])
+#     new_student_in_lesson = StudentInLesson(student, lesson, id)
+#     student_in_lesson_repository.save(new_student_in_lesson)
+#     return redirect("/lessons/{}/students_in_class".format(id))
+
+
+
+
+
+
+
+
+
+
+
