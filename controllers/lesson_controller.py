@@ -46,3 +46,23 @@ def student_in_lesson(id):
     lesson = lesson_repository.select(id)
     students = lesson_repository.students_for_lesson(lesson)
     return render_template("lessons/students_in_lesson.jinja", students=students)
+
+@lessons_blueprint.route("/lessons/new", methods=['GET'])
+def new_lesson():
+    educators = educator_repository.select_all()
+    subjects = subject_repository.select_all()
+    learning_styles = learning_style_repository.select_all()
+    return render_template("lessons/new.jinja", all_educators=educators, all_subjects=subjects, all_learning_styles=learning_styles)
+
+
+@lessons_blueprint.route("/lessons", methods=['POST'])
+def create_lesson():
+    print(request.form)
+    date = request.form['date']
+    time = request.form['time']
+    educator = educator_repository.select(request.form['educator_id'])
+    subject = subject_repository.select(request.form['subject_id'])
+    learning_style = learning_style_repository.select(request.form['learning_style_id'])
+    lesson = Lesson(date, time, educator, subject, learning_style)
+    lesson_repository.save(lesson)
+    return redirect('/lessons')
