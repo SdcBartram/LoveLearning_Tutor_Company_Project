@@ -19,16 +19,12 @@ def lessons():
 @lessons_blueprint.route("/lessons/<id>")
 def show(id):
     lesson = lesson_repository.select(id)
-    subject = subject_repository.select(id)
-    educator = educator_repository.select(id)
-    return render_template("lessons/show.jinja", lesson=lesson, educator=educator, subject=subject)
+    return render_template("lessons/show.jinja", lesson=lesson)
 
 @lessons_blueprint.route("/lessons/<id>/edit", methods=['GET'])
 def edit_lessons(id):
     lesson = lesson_repository.select(id)
-    educator = educator_repository.select(lesson.educator.id)
-    subject = subject_repository.select(lesson.subject.id)
-    return render_template("lessons/edit.jinja", lesson=lesson, educator=educator, subject=subject)
+    return render_template("lessons/edit.jinja", lesson=lesson)
 
 @lessons_blueprint.route("/lessons/<id>/delete", methods=['POST'])
 def delete_lesson(id):

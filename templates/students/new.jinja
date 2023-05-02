@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1> New Student </h1>
+
+<form action="/students" method="post">
+{# first_name #}
+<div>
+    <label for="first_name">First Name: </label>
+    <input type "text" id="first_name" name="first_name" placeholder="First Name" required autofocus>
+</div>
+
+{# last_name #}
+<div>
+    <label for"last_name">Last Name: </label>
+    <input type "text" id="last_name" name="last_name" placeholder="Last Name">
+</div>
+
+{# subject #}
+<div>
+    <label for"subject"> Subject : </label>
+    <select id="subject" name="subject_id">
+    {% for subject in all_subjects %}
+        <option value="{{ subject.id }}">{{ subject.subject_name }}</option>
+    {% endfor %}
+    </select>
+</div>
+
+{# learning_style #}
+<div>
+    <label for"learning_style"> Learning_style</label>
+    <select id="learning_style" name="learning_style_id">
+    {% for learning_style in all_learning_styles %}
+        <option value="{{ learning_style.id }}">{{ learning_style.learning_style }}</option>
+    {% endfor %}
+    </select>
+</div>
+{# comment #}
+<div>
+    <label for"comment"> Comments: </label>
+    <input type "text" id="comment" name="comment" placeholder="Comments">
+</div>
+<button type="submit">Add Student</button>
+</form>
+
+{% endblock %}

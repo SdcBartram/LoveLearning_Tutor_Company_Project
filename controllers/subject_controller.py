@@ -29,3 +29,17 @@ def delete_subject(id):
 def edit_subjects(id):
     subject=subject_repository.select(id)
     return render_template("subjects/edit.jinja", subject=subject)
+
+@subjects_blueprint.route("/subjects/new", methods=['GET'])
+def new_subject():
+    learning_styles = learning_style_repository.select_all()
+    return render_template("subjects/new.jinja", all_learning_styles=learning_styles)
+
+
+@subjects_blueprint.route("/subjects", methods=['POST'])
+def create_subject():
+    subject_name = request.form['subject_name']
+    learning_style = learning_style_repository.select(request.form['learning_style_id'])
+    subject = Subject(subject_name,learning_style)
+    subject_repository.save(subject)
+    return redirect('/subjects')

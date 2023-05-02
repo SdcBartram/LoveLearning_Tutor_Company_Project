@@ -15,19 +15,42 @@ def students():
     students = student_repository.select_all()
     return render_template("students/index.jinja", students=students)
 
+
 @students_blueprint.route("/students/<id>")
 def show(id):
     student = student_repository.select(id)
     return render_template("students/show.jinja", student=student)
+
 
 @students_blueprint.route("/students/<id>/edit", methods=['GET'])
 def edit_students(id):
     student = student_repository.select(id)
     return render_template("students/edit.jinja", student=student)
 
+
 @students_blueprint.route("/students/<id>/delete", methods=['POST'])
 def delete_educator(id):
     student_repository.delete(id)
+    return redirect('/students')
+
+
+@students_blueprint.route("/students/new", methods=['GET'])
+def new_student():
+    subjects = subject_repository.select_all()
+    learning_styles = learning_style_repository.select_all()
+    return render_template("students/new.jinja", all_subjects=subjects, all_learning_styles=learning_styles)
+
+
+@students_blueprint.route("/students", methods=['POST'])
+def create_student():
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    subject = subject_repository.select(request.form['subject_id'])
+    learning_style = learning_style_repository.select(
+        request.form['learning_style_id'])
+    comment = request.form['comment']
+    student = Student(first_name, last_name, subject, learning_style, comment)
+    student_repository.save(student)
     return redirect('/students')
 
 # student search

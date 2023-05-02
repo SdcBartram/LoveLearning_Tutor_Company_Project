@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1> New Lesson </h1>
+
+<form action="/lessons" method="post">
+{# date #}
+<div>
+    <label for="date">Date: </label>
+    <input type "date" id="date" name="date" >
+</div>
+
+{# time #}
+<div>
+    <label for"time">Time: </label>
+    <input type "time" id="time" name="time" >
+</div>
+
+{# educator #}
+<div>
+<label for"educator"> Educator : </label>
+<select id="educator" name="educator_id">
+{% for educator in all_educators %}
+    <option value=""{{ educator.id }}> {{ educator.first_name}} {{educator.last_name}} </option>
+{% endfor %}
+</select>
+</div>
+
+{# subject #}
+<div>
+    <label for"subject"> Subject : </label>
+    <select id="subject" name="subject_id">
+    {% for subject in all_subjects %}
+        <option value="{{ subject.id }}">{{ subject.subject_name }}</option>
+    {% endfor %}
+    </select>
+</div>
+
+{# learning_style #}
+<div>
+    <label for"learning_style"> Learning_style</label>
+    <select id="learning_style" name="learning_style_id">
+    {% for learning_style in all_learning_styles %}
+        <option value="{{ learning_style.id }}">{{ learning_style.learning_style }}</option>
+    {% endfor %}
+    </select>
+</div>
+<button type="submit">Add Lesson</button>
+</form>
+
+{% endblock %}
