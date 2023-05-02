@@ -23,10 +23,11 @@ def select_all():
 
     for row in results:
         learning_style_id = row['learning_style_id']
-        learning_style =learning_style_repository.select(learning_style_id)
+        learning_style = learning_style_repository.select(learning_style_id)
         subject = Subject(row['subject_name'], learning_style, row['id'])
         subjects.append(subject)
     return subjects
+
 
 def select(id):
     subject = None
@@ -35,9 +36,11 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result:
-            learning_style = learning_style_repository.select(result['learning_style_id'])
-            subject = Subject(result['subject_name'], learning_style, result['id'])
+        learning_style = learning_style_repository.select(
+            result['learning_style_id'])
+        subject = Subject(result['subject_name'], learning_style, result['id'])
     return subject
+
 
 def delete_all():
     sql = "DELETE FROM subjects"
@@ -48,6 +51,7 @@ def delete(id):
     sql = "DELETE FROM subjects WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+
 
 def update(subject):
     sql = "UPDATE subjects SET (subject_name, learning_style_id) = (%s, %s) WHERE id = %s"

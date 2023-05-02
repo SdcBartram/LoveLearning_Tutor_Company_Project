@@ -6,24 +6,27 @@
 <table>
     <tr>
         <th>
-            Subject : 
+            Subject :
         </th>
         <th>
-            Learning Style : 
+            Learning Style :
         </th>
     </tr>
     {% for subject in subjects %}
     <tr>
         <td><a href="/subjects/{{ subject.id }}"> {{subject.subject_name}} </a></td>
         <td> {{ subject.learning_style.id }}</td>
-        <td><div class="buttons">
-        
-            <form class="delete-form" action="/subjects/{{subject.id}}/delete" method="POST">
-                <button class="trash_button"><i class="fa fa-trash-o fa-3x" style="color:black" aria-hidden="true"></i></button>
-            </form>
-        </div></td>
+        <td>
+            <div class="buttons">
+
+                <form class="delete-form" action="/subjects/{{subject.id}}/delete" method="POST">
+                    <button class="trash_button"><i class="fa fa-trash-o fa-3x" style="color:black"
+                            aria-hidden="true"></i></button>
+                </form>
+            </div>
+        </td>
     </tr>
-    {% endfor %}    
+    {% endfor %}
 </table>
 
 <p><a href="/subjects/new">Add a New Subject</a></p>

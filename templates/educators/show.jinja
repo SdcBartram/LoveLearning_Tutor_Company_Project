@@ -2,10 +2,10 @@
 
 {% block content %}
 <div>
-<h1> {{educator.first_name}} {{educator.last_name}} </h1> 
+    <h1> {{educator.first_name}} {{educator.last_name}} </h1>
 
-<p> Subject: {{educator.subject.subject_name }} </p>
-<p> Teaching Style: {{ educator.learning_style.learning_style }}</p>
-<p><a href="/educators/{{educator.id}}/edit">Edit</a></p>
+    <p> Subject: {{educator.subject.subject_name }} </p>
+    <p> Teaching Style: {{ educator.learning_style.learning_style }}</p>
+    <p><a href="/educators/{{educator.id}}/edit">Edit</a></p>
 </div>
 {% endblock %}
