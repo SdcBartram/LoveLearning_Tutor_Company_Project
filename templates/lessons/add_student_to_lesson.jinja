@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<form action="/add_student_to_lesson/<id>" method="POST" >
+<form action="/add_student_to_lesson/{{lesson.id}}" method="POST" >
     <label for="student">Select a Student: </label>
     <select id="student" name="student_id">
         {% for student in all_students %}

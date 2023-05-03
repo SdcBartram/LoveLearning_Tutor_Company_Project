@@ -81,20 +81,34 @@ def update_lesson(id):
     lesson_repository.update(edited_lesson)
     return redirect('/lessons')
 
-@lessons_blueprint.route("/lessons/<id>/students_in_lesson")
+@lessons_blueprint.route("/lessons/<id>/students_in_lesson", methods=['GET'])
 def student_in_lesson(id):
     lesson = lesson_repository.select(id)
     students_in_lesson = lesson_repository.students_for_lesson(lesson)
     return render_template("lessons/students_in_lesson.jinja", students_in_lesson=students_in_lesson, lesson=lesson)
 
 
+# Function to display all students in a lesson
+# Select the lesson with the given id
+# Render the students_in_lesson template with the list of students and the lesson
+# Function to add a student to a lesson
+# Select the lesson with the given id
+# Select the student with the id provided in the form
+## conditional statement to check the length of list of students has not reached the max
+## conditional statement to check that learning_styles match
+# Create a new StudentInLesson object and save it to the database
+## increase count to list of students
+# Redirect to the page displaying the students in the lesson
+
+
+# lesson id not coming through/path problems?? // create new controller and path?
 # @lessons_blueprint.route("/lessons/<id>/add_student_to_lesson", methods=['POST'])
 # def add_student_to_lesson(id):
 #     lesson = lesson_repository.select(id)
 #     student = student_repository.select(request.form['student_id'])
 #     new_student_in_lesson = StudentInLesson(student, lesson, id)
 #     student_in_lesson_repository.save(new_student_in_lesson)
-#     return redirect("/lessons/{}/students_in_class".format(id))
+#     return redirect("/lessons/<id>/students_in_class")
 
 
 

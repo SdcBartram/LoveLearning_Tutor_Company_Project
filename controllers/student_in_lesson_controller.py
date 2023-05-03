@@ -18,4 +18,4 @@ def add_student_to_lesson(id):
     student = student_repository.select(request.form['student_id'])
     new_student_in_lesson = StudentInLesson(student, lesson, id)
     student_in_lesson_repository.save(new_student_in_lesson)
-    return redirect("/lessons/{}/students_in_lesson".format(id))
+    return redirect("/lessons/<id>/students_in_lesson")
