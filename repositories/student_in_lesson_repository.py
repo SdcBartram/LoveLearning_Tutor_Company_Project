@@ -11,7 +11,7 @@ import repositories.learning_style_repository as learning_style_repository
 
 
 def save(student_id, lesson_id):
-    sql = "INSERT INTO student_in_lesson (student_id, lesson_id) VALUES (%s, %s) RETURNING id"
+    sql = "INSERT INTO students_in_lessons (student_id, lesson_id) VALUES (%s, %s) RETURNING id"
     values = [student_id, lesson_id]
     results = run_sql(sql, values)
     result = results[0]['id']

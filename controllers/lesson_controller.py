@@ -3,6 +3,7 @@ from flask import Blueprint
 
 from models.lesson import Lesson
 from models.student_in_lesson import StudentInLesson
+from models.learning_style import LearningStyle
 
 import repositories.lesson_repository as lesson_repository
 import repositories.subject_repository as subject_repository
@@ -87,6 +88,28 @@ def student_in_lesson(id):
     students_in_lesson = lesson_repository.students_for_lesson(lesson)
     return render_template("lessons/students_in_lesson.jinja", students_in_lesson=students_in_lesson, lesson=lesson)
 
+@lessons_blueprint.route("/lesson/<id>/students", methods=['GET'])
+def add_student_form(id):
+    lesson=lesson_repository.select(id)
+    students = student_repository.select_all()
+    return render_template("lessons/add_student_to_lesson.jinja", all_students=students, lesson=lesson)
+
+@lessons_blueprint.route("/add_student_to_lesson/<id>", methods=['POST'])
+def add_student_to_lesson(id):
+    lesson = lesson_repository.select(id)
+    student = student_repository.select(request.form['student_id'])
+    #add conditionals - max student count & no duplicates
+    if student.id in [student.id for student in lesson_repository.students_for_lesson(lesson)]:
+        return render_template("lessons/student_already_in_lesson.jinja", student=student, lesson=lesson)
+    if student.learning_style != lesson.learning_style:
+        return render_template("lessons/learning_style_does_not_match.jinja", student=student, lesson=lesson)
+    if len(lesson_repository.students_for_lesson(lesson)) >= 3:
+        return render_template("/lessons/too_many_students.jinja", lesson=lesson)
+    new_student_in_lesson = StudentInLesson(student, lesson, id)
+    student_in_lesson_repository.save(new_student_in_lesson.student.id, new_student_in_lesson.lesson.id)
+    return redirect("/lessons/{}/students_in_lesson".format(id))
+
+    
 
 # Function to display all students in a lesson
 # Select the lesson with the given id
@@ -101,14 +124,6 @@ def student_in_lesson(id):
 # Redirect to the page displaying the students in the lesson
 
 
-# lesson id not coming through/path problems?? // create new controller and path?
-# @lessons_blueprint.route("/lessons/<id>/add_student_to_lesson", methods=['POST'])
-# def add_student_to_lesson(id):
-#     lesson = lesson_repository.select(id)
-#     student = student_repository.select(request.form['student_id'])
-#     new_student_in_lesson = StudentInLesson(student, lesson, id)
-#     student_in_lesson_repository.save(new_student_in_lesson)
-#     return redirect("/lessons/<id>/students_in_class")
 
 
 

@@ -68,4 +68,13 @@ def update_student(id):
     student_repository.update(edited_student)
     return redirect('/students')
 
+
+@students_blueprint.route("/students/<id>/search", methods=['GET'])
+def find_student(id):
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    student = Student(first_name, last_name, id)
+    student_repository.search_for_student(student)
+    return redirect('/students/{}'.format(id))
+
 # student search

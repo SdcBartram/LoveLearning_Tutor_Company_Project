@@ -159,12 +159,12 @@ all_lessons = lesson_repository.select_all()
 #     print("over here --->",lesson.subject.subject_name, lesson.date)
 
 # add student to lesson
-student_in_lesson1 = lesson_repository.add_student_to_lesson(student1, lesson1)
+student_in_lesson1 = lesson_repository.add_student_to_lesson(student1.id, lesson1.id)
 # print(student1.first_name, lesson1.id)
 
 
 # select all students for a lesson
-lesson_repository.add_student_to_lesson(student2, lesson1)
+lesson_repository.add_student_to_lesson(student2.id, lesson1.id)
 classlist = lesson_repository.students_for_lesson(lesson1)
 # for student in classlist:
 #     print("over here ---> ", student.first_name)

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <h1> {{lesson.subject.subject_name}}</h1>
+
+    <p class="error message" > Oops, that student is already in the lesson! </p>
+    <p><a href="/lesson/{{ lesson.id }}/students">Return to the list of students in that lesson</a></p>
+</div>
+{% endblock %}
