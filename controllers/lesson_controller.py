@@ -82,34 +82,39 @@ def update_lesson(id):
     lesson_repository.update(edited_lesson)
     return redirect('/lessons')
 
+
 @lessons_blueprint.route("/lessons/<id>/students_in_lesson", methods=['GET'])
 def student_in_lesson(id):
     lesson = lesson_repository.select(id)
     students_in_lesson = lesson_repository.students_for_lesson(lesson)
     return render_template("lessons/students_in_lesson.jinja", students_in_lesson=students_in_lesson, lesson=lesson)
 
+
 @lessons_blueprint.route("/lesson/<id>/students", methods=['GET'])
 def add_student_form(id):
-    lesson=lesson_repository.select(id)
+    lesson = lesson_repository.select(id)
     students = student_repository.select_all()
     return render_template("lessons/add_student_to_lesson.jinja", all_students=students, lesson=lesson)
+
 
 @lessons_blueprint.route("/add_student_to_lesson/<id>", methods=['POST'])
 def add_student_to_lesson(id):
     lesson = lesson_repository.select(id)
     student = student_repository.select(request.form['student_id'])
-    #add conditionals - max student count & no duplicates
     if student.id in [student.id for student in lesson_repository.students_for_lesson(lesson)]:
         return render_template("lessons/student_already_in_lesson.jinja", student=student, lesson=lesson)
-    if student.learning_style != lesson.learning_style:
-        return render_template("lessons/learning_style_does_not_match.jinja", student=student, lesson=lesson)
     if len(lesson_repository.students_for_lesson(lesson)) >= 3:
-        return render_template("/lessons/too_many_students.jinja", lesson=lesson)
+        return render_template("lessons/too_many_students.jinja", lesson=lesson)
+    if student.learning_style.id != lesson.learning_style.id:
+        print(student.learning_style.id)
+        print(lesson.learning_style.id)
+        return render_template("lessons/learning_style_does_not_match.jinja", student=student, lesson=lesson)
+    print("HERE!!!", lesson.id, lesson.learning_style.id)
     new_student_in_lesson = StudentInLesson(student, lesson, id)
-    student_in_lesson_repository.save(new_student_in_lesson.student.id, new_student_in_lesson.lesson.id)
-    return redirect("/lessons/{}/students_in_lesson".format(id))
+    student_in_lesson_repository.save(
+        new_student_in_lesson.student.id, new_student_in_lesson.lesson.id)
+    return redirect(f"/lessons/{id}/students_in_lesson")
 
-    
 
 # Function to display all students in a lesson
 # Select the lesson with the given id
@@ -117,21 +122,9 @@ def add_student_to_lesson(id):
 # Function to add a student to a lesson
 # Select the lesson with the given id
 # Select the student with the id provided in the form
-## conditional statement to check the length of list of students has not reached the max
-## conditional statement to check that learning_styles match
+# conditional statement to check the length of list of students has not reached the max
+# conditional statement to check that learning_styles match
 # Create a new StudentInLesson object and save it to the database
-## increase count to list of students
+# increase count to list of students
 # Redirect to the page displaying the students in the lesson
-
-
-
-
-
-
-
-
-
-
-
-
 
