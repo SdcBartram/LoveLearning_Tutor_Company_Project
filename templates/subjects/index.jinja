@@ -3,13 +3,20 @@
 {% block content %}
 
 <h1> Subjects </h1>
+
+<p><a class="links" href="/subjects/new">Add a New Subject</a></p>
+
+
 <table>
     <tr>
         <th>
-            Subject :
+            Subject
         </th>
         <th>
-            Learning Style :
+            Learning Style
+        </th>
+        <th>
+            Delete Subject
         </th>
     </tr>
     {% for subject in subjects %}
@@ -29,5 +36,4 @@
     {% endfor %}
 </table>
 
-<p><a href="/subjects/new">Add a New Subject</a></p>
 {% endblock %}

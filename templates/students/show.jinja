@@ -3,12 +3,12 @@
 {% block content %}
 <h1> {{ student.first_name }} {{ student.last_name }} </h1>
 
-<p> Subjects: {{ student.subject.subject_name }} </p>
+<p> Enrolled for: {{ student.subject.subject_name }} </p>
 
 <p> Learning_style: {{ student.learning_style.learning_style }} </p>
 
 <p> Comments: {{ student.comment }} </p>
 
-<p><a href="/students/{{ student.id }}/edit">Edit</a></p>
+<p><a class="links" href="/students/{{ student.id }}/edit">Edit Student</a></p>
 
 {% endblock %}

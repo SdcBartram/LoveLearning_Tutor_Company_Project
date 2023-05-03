@@ -3,6 +3,11 @@
 {% block content %}
 
 <h1> Lessons </h1>
+<div class="inline_links">
+<p><a class="links" href="/lessons/upcoming">All Upcoming Lessons</a> </p>
+<p><a class="links" href="/lessons/new">Add a New Lesson</a> </p>
+</div>
+
 <table>
     <tr>
         <th>
@@ -23,6 +28,9 @@
         <th>
             Learning Style
         </th>
+        <th>
+            Delete Lesson
+        </th>
     </tr>
     {% for lesson in lessons %}
     <tr>
@@ -41,7 +49,5 @@
     </tr>
     {% endfor %}
 </table>
-<p><a href="/lessons/upcoming">All Upcoming Lessons</a> </p>
-<p><a href="/lessons/new">Add a New Lesson</a> </p>
 
 {% endblock %}

@@ -4,7 +4,7 @@
 <div>
     <h1> {{lesson.subject.subject_name}}</h1>
 
-    <p class="error message" > Oops, that student is already in the lesson! </p>
-    <p><a href="/lesson/{{ lesson.id }}/students">Return to the list of students in that lesson</a></p>
+    <p class="error_message" > Oops, that student is already in the lesson! </p>
+    <p><a class="links" href="/lesson/{{ lesson.id }}/students">Return to Classlist</a></p>
 </div>
 {% endblock %}

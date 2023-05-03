@@ -3,6 +3,10 @@
 {% block content %}
 
 <h1> Students </h1>
+
+<p><a class="links" href="/students/new">Add a New Student</a></p>
+{# <p><a href="/students/search">Search for student record</a></p> #}
+
 <table>
     <tr>
         <th>
@@ -19,6 +23,9 @@
         </th>
         <th>
             Comments
+        </th>
+        <th>
+            Delete Student
         </th>
     </tr>
     {% for student in students %}
@@ -40,6 +47,5 @@
     </tr>
     {% endfor %}
 </table>
-<p><a href="/students/new">Add a New Student</a></p>
-{# <p><a href="/students/search">Search for student record</a></p> #}
+
 {% endblock %}
