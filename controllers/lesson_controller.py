@@ -116,10 +116,11 @@ def add_student_to_lesson(id):
     return redirect(f"/lessons/{id}/students_in_lesson")
 
 
-# Function to display all students in a lesson
+# Pseudocode for a function to display all students in a lesson
 # Select the lesson with the given id
 # Render the students_in_lesson template with the list of students and the lesson
-# Function to add a student to a lesson
+
+# Pseudocode for a function to add a student to a lesson
 # Select the lesson with the given id
 # Select the student with the id provided in the form
 # conditional statement to check the length of list of students has not reached the max

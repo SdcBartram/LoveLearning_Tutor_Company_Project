@@ -41,7 +41,7 @@
 
     {# learning_style #}
     <div>
-        <label for="learning_style"> Learning_style: </label>
+        <label for="learning_style"> Learning Style: </label>
         <select id="learning_style" name="learning_style_id">
             {% for learning_style in all_learning_styles %}
             <option value="{{ learning_style.id }}" {% if lesson.learning_style.id==learning_style.id %}
