@@ -5,7 +5,7 @@ from models.lesson import Lesson
 class TestLesson(unittest.TestCase):
 
     def setUp(self):
-        self.lesson = Lesson("25-05-2023", "13:00", "Knowe Itall", "Fred Flintstone", "wheels 101", "online", 3)
+        self.lesson = Lesson("25-05-2023", "13:00", "Knowe Itall", "wheels 101", "online", 3)
 
     def test_lesson_has_date(self):
         self.assertEqual("25-05-2023", self.lesson.date)
@@ -15,9 +15,6 @@ class TestLesson(unittest.TestCase):
 
     def test_lesson_has_educator(self):
         self.assertEqual("Knowe Itall", self.lesson.educator)
-
-    def test_lesson_has_student(self):
-        self.assertEqual("Fred Flintstone", self.lesson.student)
 
     def test_lesson_has_subject(self):
         self.assertEqual("wheels 101", self.lesson.subject)

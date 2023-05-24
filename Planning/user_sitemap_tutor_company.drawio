@@ -1,0 +1,160 @@
+<mxfile host="65bd71144e">
+    <diagram id="yHFWl0oV7V7XmzZiE7xS" name="Page-1">
+        <mxGraphModel dx="1227" dy="1073" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="37" style="edgeStyle=none;html=1;strokeColor=#050505;fontSize=13;fontColor=#FFFFFF;endArrow=none;endFill=0;" edge="1" parent="1" source="3">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="113" y="257" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3" value="STUDENTS" style="html=1;strokeColor=#001DBC;fillColor=#0050ef;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=13;outlineConnect=0;spacingTop=-6;fontColor=#ffffff;sketch=0;shape=mxgraph.sitemap.page;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="52" y="133" width="120" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#050505;fontSize=13;fontColor=#FFFFFF;endArrow=none;endFill=0;" edge="1" parent="1" source="4" target="14">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="EDUCATORS" style="html=1;strokeColor=#BD7000;fillColor=#f0a30a;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=13;outlineConnect=0;spacingTop=-6;fontColor=#FFFFFF;sketch=0;shape=mxgraph.sitemap.page;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="244" y="133" width="120" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#050505;fontSize=13;fontColor=#FFFFFF;endArrow=none;endFill=0;" edge="1" parent="1" source="5" target="17">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="SUBJECTS" style="html=1;strokeColor=#005700;fillColor=#008a00;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=13;outlineConnect=0;spacingTop=-6;fontColor=#ffffff;sketch=0;shape=mxgraph.sitemap.page;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="436" y="133" width="120" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#050505;fontSize=13;fontColor=#FFFFFF;endArrow=none;endFill=0;" edge="1" parent="1" source="6" target="20">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="LESSONS" style="html=1;strokeColor=#A50040;fillColor=#d80073;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=13;outlineConnect=0;spacingTop=-6;fontColor=#ffffff;sketch=0;shape=mxgraph.sitemap.page;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="628" y="133" width="120" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#050505;fontSize=13;fontColor=#FFFFFF;endArrow=none;endFill=0;" edge="1" parent="1" source="8" target="11">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="ADD A NEW STUDENT" style="html=1;strokeColor=#001DBC;fillColor=#0050ef;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=13;outlineConnect=0;spacingTop=-6;fontColor=#ffffff;sketch=0;shape=mxgraph.sitemap.page;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="48" y="259" width="145" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#050505;fontSize=13;fontColor=#FFFFFF;endArrow=none;endFill=0;" edge="1" parent="1" source="11" target="12">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="VIEW A STUDENT" style="html=1;strokeColor=#001DBC;fillColor=#0050ef;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=13;outlineConnect=0;spacingTop=-6;fontColor=#ffffff;sketch=0;shape=mxgraph.sitemap.page;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="52" y="399" width="136" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="EDIT A STUDENT" style="html=1;strokeColor=#001DBC;fillColor=#0050ef;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=13;outlineConnect=0;spacingTop=-6;fontColor=#ffffff;sketch=0;shape=mxgraph.sitemap.page;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="52" y="539" width="136" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#050505;fontSize=13;fontColor=#FFFFFF;endArrow=none;endFill=0;" edge="1" parent="1" target="15">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="302" y="330" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="14" value="ADD A NEW EDUCATOR" style="html=1;strokeColor=#BD7000;fillColor=#f0a30a;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=13;outlineConnect=0;spacingTop=-6;fontColor=#FFFFFF;sketch=0;shape=mxgraph.sitemap.page;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="226" y="259" width="160" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#050505;fontSize=13;fontColor=#FFFFFF;endArrow=none;endFill=0;" edge="1" parent="1" source="15" target="16">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="VIEW AN EDUCATOR" style="html=1;strokeColor=#BD7000;fillColor=#f0a30a;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=13;outlineConnect=0;spacingTop=-6;fontColor=#FFFFFF;sketch=0;shape=mxgraph.sitemap.page;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="236" y="399" width="136" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="EDIT AN EDUCATOR" style="html=1;strokeColor=#BD7000;fillColor=#f0a30a;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=13;outlineConnect=0;spacingTop=-6;fontColor=#FFFFFF;sketch=0;shape=mxgraph.sitemap.page;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="236" y="539" width="136" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#050505;fontSize=13;fontColor=#FFFFFF;endArrow=none;endFill=0;" edge="1" parent="1" source="17" target="18">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="ADD A NEW SUBJECT" style="html=1;strokeColor=#005700;fillColor=#008a00;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=13;outlineConnect=0;spacingTop=-6;fontColor=#ffffff;sketch=0;shape=mxgraph.sitemap.page;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="424" y="259" width="148" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#050505;fontSize=13;fontColor=#FFFFFF;endArrow=none;endFill=0;" edge="1" parent="1" source="18" target="19">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="VIEW A SUBJECT" style="html=1;strokeColor=#005700;fillColor=#008a00;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=13;outlineConnect=0;spacingTop=-6;fontColor=#ffffff;sketch=0;shape=mxgraph.sitemap.page;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="428" y="399" width="136" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="EDIT A SUBJECT" style="html=1;strokeColor=#005700;fillColor=#008a00;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=13;outlineConnect=0;spacingTop=-6;fontColor=#ffffff;sketch=0;shape=mxgraph.sitemap.page;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="428" y="539" width="136" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" style="edgeStyle=none;html=1;strokeColor=#050505;fontSize=13;fontColor=#FFFFFF;endArrow=none;endFill=0;" edge="1" parent="1" source="20">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="688" y="397.69876988728845" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="20" value="ADD A NEW LESSON" style="html=1;strokeColor=#A50040;fillColor=#d80073;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=13;outlineConnect=0;spacingTop=-6;fontColor=#ffffff;sketch=0;shape=mxgraph.sitemap.page;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="620" y="259" width="136" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="" style="edgeStyle=none;html=1;strokeColor=#050505;fontSize=13;fontColor=#FFFFFF;endArrow=none;endFill=0;" edge="1" parent="1" source="21" target="22">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="VIEW ALL UPCOMING LESSONS" style="html=1;strokeColor=#A50040;fillColor=#d80073;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=13;outlineConnect=0;spacingTop=-6;fontColor=#ffffff;sketch=0;shape=mxgraph.sitemap.page;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="582" y="399" width="212" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#050505;fontSize=13;fontColor=#FFFFFF;endArrow=none;endFill=0;" edge="1" parent="1" source="22" target="23">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="VIEW A LESSON" style="html=1;strokeColor=#A50040;fillColor=#d80073;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=13;outlineConnect=0;spacingTop=-6;fontColor=#ffffff;sketch=0;shape=mxgraph.sitemap.page;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="593" y="539" width="190" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#050505;fontSize=13;fontColor=#FFFFFF;endArrow=none;endFill=0;" edge="1" parent="1" source="23" target="24">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="EDIT A LESSON" style="html=1;strokeColor=#A50040;fillColor=#d80073;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=13;outlineConnect=0;spacingTop=-6;fontColor=#ffffff;sketch=0;shape=mxgraph.sitemap.page;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="596" y="679" width="187" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#050505;fontSize=13;fontColor=#FFFFFF;endArrow=none;endFill=0;" edge="1" parent="1" source="24" target="26">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="VIEW STUDENTS IN LESSON" style="html=1;strokeColor=#A50040;fillColor=#d80073;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=13;outlineConnect=0;spacingTop=-6;fontColor=#ffffff;sketch=0;shape=mxgraph.sitemap.page;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="596" y="819" width="184" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="ADD STUDENT TO LESSON" style="html=1;strokeColor=#A50040;fillColor=#d80073;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=13;outlineConnect=0;spacingTop=-6;fontColor=#ffffff;sketch=0;shape=mxgraph.sitemap.page;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="601" y="959" width="174" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=13;fontColor=#FFFFFF;strokeColor=#050505;" edge="1" parent="1" source="27">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="414" y="117.67704772949219" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="27" value="&lt;i style=&quot;font-size: 13px;&quot;&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;HOME&lt;/font&gt;&lt;/span&gt;&lt;/i&gt;" style="html=1;strokeColor=#B09500;fillColor=#e3c800;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=13;outlineConnect=0;spacingTop=-6;fontColor=#FFFFFF;sketch=0;shape=mxgraph.sitemap.home;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="354" y="20" width="120" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="" style="endArrow=none;html=1;strokeColor=#050505;fontSize=13;fontColor=#FFFFFF;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="111" y="118" as="sourcePoint"/>
+                        <mxPoint x="687" y="118" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="416" y="118"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="33" value="" style="endArrow=classic;html=1;strokeColor=#050505;fontSize=13;fontColor=#FFFFFF;" edge="1" parent="1" target="3">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="111" y="118" as="sourcePoint"/>
+                        <mxPoint x="181" y="142" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="34" value="" style="endArrow=classic;html=1;strokeColor=#050505;fontSize=13;fontColor=#FFFFFF;" edge="1" parent="1" target="4">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="303" y="118" as="sourcePoint"/>
+                        <mxPoint x="121.29999999999995" y="143" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="35" value="" style="endArrow=classic;html=1;strokeColor=#050505;fontSize=13;fontColor=#FFFFFF;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="5">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="496" y="118" as="sourcePoint"/>
+                        <mxPoint x="313.3" y="143" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="36" value="" style="endArrow=classic;html=1;strokeColor=#050505;fontSize=13;fontColor=#FFFFFF;" edge="1" parent="1" target="6">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="686" y="118" as="sourcePoint"/>
+                        <mxPoint x="506" y="143" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

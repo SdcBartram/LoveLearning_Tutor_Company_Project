@@ -27,7 +27,8 @@ def select_all():
         subject = subject_repository.select(row['subject_id'])
         learning_style = learning_style_repository.select(
             row['learning_style_id'])
-        educator = Educator(row['first_name'], row['last_name'], subject, learning_style, row['id'])
+        educator = Educator(
+            row['first_name'], row['last_name'], subject, learning_style, row['id'])
         educators.append(educator)
     return educators
 
@@ -39,9 +40,11 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result:
-            subject = subject_repository.select(result['subject_id'])
-            learning_style = learning_style_repository.select(result['learning_style_id'])
-            educator = Educator(result['first_name'], result['last_name'], subject, learning_style, result['id'])
+        subject = subject_repository.select(result['subject_id'])
+        learning_style = learning_style_repository.select(
+            result['learning_style_id'])
+        educator = Educator(
+            result['first_name'], result['last_name'], subject, learning_style, result['id'])
     return educator
 
 
@@ -62,15 +65,17 @@ def update(educator):
               educator.subject.id, educator.learning_style.id, educator.id]
     run_sql(sql, values)
 
+
 def subjects_for_educator(educator):
     subjects = []
 
     sql = "SELECT subjects.* FROM subjects INNER JOIN educators ON educators.subject_id = subjects.id WHERE educators.id = %s"
     values = [educator.id]
-    results = run_sql(sql,values)
+    results = run_sql(sql, values)
 
     for row in results:
-        learning_style = learning_style_repository.select(row['learning_style_id'])
+        learning_style = learning_style_repository.select(
+            row['learning_style_id'])
         subject = Subject(row['subject_name'], learning_style, row['id'])
         subjects.append(subject)
     return subjects

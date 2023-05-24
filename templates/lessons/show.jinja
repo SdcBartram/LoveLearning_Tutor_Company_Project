@@ -2,13 +2,16 @@
 
 {% block content %}
 <div>
-<h1> {{lesson.subject.subject_name}}</h1> 
+    <h1> {{lesson.subject.subject_name}}</h1> 
 
-<p> Date: {{ lesson.date }} </p>
-<p> Time: {{ lesson.time }} </p>
-<p> Educator: {{ lesson.educator.first_name }} {{lesson.educator.last_name}} </p>
-<p> {{lesson.learning_style.learning_style}} </p>
-<p><a href="/lessons/{{lesson.id}}/edit">Edit</a></p>
-<p><a href="/lessons/{{lesson.id}}/students_in_lesson">Students in Lesson</a></p>
+    <p> Lesson Date: {{ lesson.date }} </p>
+    <p> Lesson Time: {{ lesson.time }} </p>
+    <p> Educator for Lesson: {{ lesson.educator.first_name }} {{lesson.educator.last_name}} </p>
+    <p> Learning Style: {{lesson.learning_style.learning_style}} </p>
+
+    <div class="inline_links">
+        <p><a class="links" href="/lessons/{{lesson.id}}/edit">Edit Lesson</a></p>
+        <p><a class="links" href="/lessons/{{lesson.id}}/students_in_lesson">Students in Lesson</a></p>
+    </div>
 </div>
 {% endblock %}

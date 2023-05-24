@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="/add_student_to_lesson/{{lesson.id}}" method="POST" >
+    <label for="student">Select a Student: </label>
+    <select id="student" name="student_id">
+        {% for student in all_students %}
+        <option value="{{ student.id }}">{{ student.first_name }} {{student.last_name}} </option>
+        {% endfor %}
+    </select>
+
+    <button class="btn" type="submit">Add Student to Lesson</button>
+</form>
+
+{% endblock %}

@@ -78,9 +78,9 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
-def add_student_to_lesson(student, lesson):
+def add_student_to_lesson(student_id, lesson_id):
     sql = "INSERT INTO students_in_lessons (student_id, lesson_id) VALUES (%s, %s) RETURNING id"
-    values = [student.id, lesson.id]
+    values = [student_id, lesson_id]
     result = run_sql(sql, values)
     return result[0]['id']
 

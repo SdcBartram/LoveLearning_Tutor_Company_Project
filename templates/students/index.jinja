@@ -3,6 +3,10 @@
 {% block content %}
 
 <h1> Students </h1>
+
+<p><a class="links" href="/students/new">Add a New Student</a></p>
+{# <p><a href="/students/search">Search for student record</a></p> #}
+
 <table>
     <tr>
         <th>
@@ -12,22 +16,36 @@
             Last Name
         </th>
         <th>
+            Subject
+        </th>
+        <th>
+            Learning Style
+        </th>
+        <th>
             Comments
+        </th>
+        <th>
+            Delete Student
         </th>
     </tr>
     {% for student in students %}
     <tr>
         <td><a href="/students/{{ student.id }}"> {{student.first_name}} </a></td>
         <td> {{ student.last_name }}</td>
+        <td> {{ student.subject.subject_name }}</td>
+        <td> {{ student.learning_style.learning_style }}</td>
         <td> {{ student.comment }}</td>
-        <td><div class="buttons">
-        
-            <form class="delete-form" action="/students/{{student.id}}/delete" method="POST">
-                <button class="trash_button"><i class="fa fa-trash-o fa-3x" style="color:black" aria-hidden="true"></i></button>
-            </form>
-        </div></td>
+        <td>
+            <div class="buttons">
+
+                <form class="delete-form" action="/students/{{student.id}}/delete" method="POST">
+                    <button class="trash_button"><i class="fa fa-trash-o fa-3x" style="color:black"
+                            aria-hidden="true"></i></button>
+                </form>
+            </div>
+        </td>
     </tr>
-    {% endfor %}    
+    {% endfor %}
 </table>
-<p><a href="/students/new">Add a New Student</a></p>
+
 {% endblock %}

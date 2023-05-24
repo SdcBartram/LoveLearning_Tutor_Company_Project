@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="/lessons/{{lesson.id}}" method="post">
+    {# date #}
+    <div>
+        <label for="date">Date: </label>
+        <input type="date" id="date" name="date" value={{lesson.date}} required autofocus>
+    </div>
+
+    {# time #}
+    <div>
+        <label for="time">Time: </label>
+        <input type="time" id="time" name="time" value="{{lesson.time}}">
+    </div>
+
+    {# educator #}
+    <div>
+        <label for="educator"> Educator: </label>
+        <select id="educator" name="educator_id">
+            {% for educator in all_educators %}
+            <option value="{{ educator.id }}" {% if lesson.educator.id==educator.id %} selected="selected" {% endif %}>
+                {{ lesson.educator.first_name }} {{ lesson.educator.last_name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    {# subject #}
+    <div>
+        <label for="subject"> Subject: </label>
+        <select id="subject" name="subject_id">
+            {% for subject in all_subjects %}
+            <option value="{{ subject.id }}" {% if lesson.subject.id==subject.id %} selected="selected" {% endif %}>
+                {{ subject.subject_name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+
+
+    {# learning_style #}
+    <div>
+        <label for="learning_style"> Learning Style: </label>
+        <select id="learning_style" name="learning_style_id">
+            {% for learning_style in all_learning_styles %}
+            <option value="{{ learning_style.id }}" {% if lesson.learning_style.id==learning_style.id %}
+                selected="selected" {% endif %}>
+                {{ learning_style.learning_style }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    
+    <button class="btn" type="submit">Update Lesson</button>
+
+</form>
+
+{% endblock %}

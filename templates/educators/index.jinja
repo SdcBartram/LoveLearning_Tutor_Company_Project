@@ -3,6 +3,9 @@
 {% block content %}
 
 <h1> Educators </h1>
+
+<p><a class="links" href="/educators/new">Add a New Educator</a></p>
+
 <table>
     <tr>
         <th>
@@ -14,14 +17,16 @@
         <th>
             Subject
         </th>
+        <th>
+            Delete Student
+        </th>
     </tr>
     {% for educator in educators %}
     <tr>
         <td><a href="/educators/{{ educator.id }}"> {{educator.first_name}} </a></td>
         <td> {{ educator.last_name }}</td>
-        <td> {{ educator.subject.id }}</td>
-        <td><div class="buttons">
-        
+        <td> {{ educator.subject.subject_name }}</td>
+        <td><div class="bin_button">
             <form class="delete-form" action="/educators/{{ educator.id }}/delete" method="POST">
                 <button class="trash_button"><i class="fa fa-trash-o fa-3x" style="color:black" aria-hidden="true"></i></button>
             </form>
@@ -30,5 +35,5 @@
     {% endfor %}    
 </table>
 
-<p><a href="/educators/new">Add a New Educator</a></p>
+
 {% endblock %}

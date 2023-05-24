@@ -1,0 +1,187 @@
+/* box sizing means easier sizing including padding and border in width and height of elements */
+Box sizing {
+box-sizing: border-box;
+}
+
+/* General Font */
+body {
+font-family: Arial, sans-serif;
+font-size: 16px;
+line-height: 1.5;
+}
+
+/* Colors using :root sets the colours, easy to use */
+:root {
+--primary-color: #007580;
+--secondary-color: #FED049;
+--text-color: #282846;
+/*   light color if needed #D8EBE4  */ 
+}
+
+/* Navigation */
+h1 {
+    font-size: 20px;
+}
+#navbar {
+background-color: #FED049;
+color: black;
+list-style-type: none;
+margin: 0px;
+padding: 0 8px;
+top: 0;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+
+.navbarlist {
+display: inline-block;
+margin: 10px;
+color: rgb(255, 255, 255);
+text-align: center;
+padding: 14px 16px;
+}
+
+
+.menu {
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: #007580;;
+color: #fff;
+padding: 20px;
+}
+
+.menu a {
+color: #fff;
+text-decoration: none;
+padding: 10px;
+}
+
+.menu a:hover {
+background-color: #fff;
+color: #007580;
+}
+
+.menu ul {
+list-style-type: none; /* removes bullet points */
+display: flex; /* aligns items in a row */
+justify-content: space-between; /* evenly spaces out items */
+margin: 0;
+padding: 0;
+}
+
+.menu li {
+margin: 0;
+padding: 0;
+}
+
+/* Buttons */
+.btn {
+display: inline-block;
+padding: 10px 20px;
+background-color: var(--primary-color);
+color: #fff;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+background-color: #007580;;
+}
+
+#welcome {
+    
+    text-align: center;
+    font-size: xx-large;
+}
+
+footer {
+    background-color: #007580;
+    color:#fff;
+    font-size: x-small;
+    text-align: center;
+}
+
+#welcome_pic {
+    display: flex;
+    flex-direction: column;
+}
+
+/* table styling */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+padding: 8px;
+text-align: left;
+border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #ddd;
+    text-align: left;
+}
+
+
+tr:hover {
+    background-color: #ddd;
+}
+
+.links {
+    display: block;
+    width: 200px;
+    height: 40px;
+    background: #007580;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 40px;
+}
+
+h1 {
+    text-align: center;
+    font-size: larger;
+    color: #007580;
+}
+
+.inline_links {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    justify-content: space-evenly;
+}
+
+.error_message {
+    color: rgb(202, 13, 13);
+    font-weight: bold;
+    font-size: ;
+}
+
+#welcome {
+    color: #007580;
+}
+
+#welcome_pic img {
+max-width: 40%;
+height: auto;
+}
+
+#welcome_pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    padding: 15px;
+    
+}

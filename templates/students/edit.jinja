@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="/students/{{student.id}}" method="post">
+    {# first_name #}
+    <div>
+        <label for="first_name">First Name: </label>
+        <input type="text" id="first_name" name="first_name" value={{student.first_name}} placeholder="First Name"
+            required autofocus>
+    </div>
+
+    {# last_name #}
+    <div>
+        <label for="last_name">Last Name: </label>
+        <input type="text" id="last_name" name="last_name" value="{{student.last_name}}" placeholder="Last Name">
+    </div>
+
+    {# subject #}
+    <div>
+        <label for="subject"> Subject: </label>
+        <select id="subject" name="subject_id">
+            {% for subject in all_subjects %}
+            <option value="{{ subject.id }}" {% if student.subject.id==subject.id %} selected="selected" {% endif %}>
+                {{ subject.subject_name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+
+
+    {# learning_style #}
+    <div>
+        <label for="learning_style"> Learning_style: </label>
+        <select id="learning_style" name="learning_style_id">
+            {% for learning_style in all_learning_styles %}
+            <option value="{{ learning_style.id }}" {% if student.learning_style.id==learning_style.id %}
+                selected="selected" {% endif %}>
+                {{ learning_style.learning_style }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="comment">Comment: </label>
+        <input type="text" id="comment" name="comment" size="50" value="{{student.comment}}" placeholder="Comment">
+    </div>
+    <button class="btn" type="submit">Update Student</button>
+
+</form>
+
+{% endblock %}

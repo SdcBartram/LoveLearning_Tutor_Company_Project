@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Love Learning</h1>
 
-<p> Welcome to Love Learning!</p>
+<p id="welcome"> Welcome to Love Learning!</p>
+<div id="welcome_pic">
+    <img src="{{ url_for('static', filename='love_to_learn.jpg')}}" alt="learn to love sign">
+</div>
 {% endblock %}

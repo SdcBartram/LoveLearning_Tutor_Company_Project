@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <h1> {{lesson.subject.subject_name}}</h1>
+
+    <p class="error_message"> Oops, the learning style of student and lesson does not match </p>
+    <p><a class="links" href="/lessons">Return to Lessons</a></p>
+</div>
+{% endblock %}
