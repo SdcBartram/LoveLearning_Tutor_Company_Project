@@ -1,43 +1,47 @@
-# Web Programming with Python
-# Tutor Company Project
+# Web Programming with Python - a Tutor Company Project
 
-Project that designs and builds an app to consolidate learning from weeks 1 - 4 on the CodeClan Software Development Course. 
-
-## Project Objectives:
+This project is designed to consolidate learning from weeks 1 - 4 on the CodeClan Software Development Course. It involves designing and building an app that focuses on the following objectives:
 
 * Object oriented programming with Python
 * Test Driven Development
 * Web Programming (REST, MVC)
 * Interacting with a PostgreSQL database (CRUD)
 
-## Rules observed:
+## The technologies used
 
-The app is built using only: 
+The app is built using the following technologies (as per the brief): 
 
-* HTML / CSS
-* Python
-* Flask
-* PostgreSQL and the psycopg
+* HTML / CSS - for front-end design and styling
+* Python - for back-end development
+* Flask - a Python web framework
+* PostgreSQL and the psycopg - for interacting with a PostgreSQL database
 
-## Terminal commands
+## Setting Up the Project
 
+To set up the project on your local machine, follow these steps:
+
+1. Create a new PostgreSQL database by running the following command in your terminal:
 ```bash
 createdb love_learning
-
-# creates the database
 ```
 
+2. Run the SQL file db/love_learning.sql to set up the necessary tables in the database. You can do this by running the following command:
 ```bash
 psql -d love_learning -f db/love_learning.sql
-
-# runs sql file to set up tables in database
 ```
 
+3. Run the console.py file to execute the console program. Use the following command:
 ```bash
 python3 console.py
-
 ```
 
+## Running the App
+
+To run the web application, execute the following command in your terminal:
 ```bash
 flask run 
 ```
+
+After running the command, open your Chrome browser and navigate to http://localhost:4999/ to view the app.
+
+

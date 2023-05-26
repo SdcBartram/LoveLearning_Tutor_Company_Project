@@ -1,32 +1,32 @@
 Hardware and software platforms:
-- Constraint: As a project for CodeClan, in terms of the brief there was a focus on using specific tools and technologies consolidating knowledge gained within the first four weeks of the course. This did mean the tools and technologies were easily accessible and compatible with my existing setup for the course. This did however limit choices but ensured the project is completed within the necessary timeframe. The project should be compatible with various types of hardware and software platforms. This is because various platforms would be used by students, educators, and the tutor company. 
-- How it's a constraint: If the project is not compatible with the platforms used by these stakeholders, it will limit their ability to use the application and could result in user frustration which will impact the work of the tutor company and educators, as well as limit return business from the students. Compatibility issues will cause errors and crashes, and limit the number of users who can access the program thereby constraining its success.
-- Why it's a constraint: The project must meet the minimum requirements and function as intended.
+Constraint: As a project for CodeClan, in terms of the brief there was a focus on using specific tools and technologies consolidating knowledge gained within the first four weeks of the course. This did mean the tools and technologies were easily accessible and compatible with my existing setup for the course. This did however limit choices but ensured the project is completed within the necessary timeframe. The project should be compatible with various types of hardware and software platforms. This is because various platforms would be used by students, educators, and the tutor company. 
+How it's a constraint: If the project is not compatible with the platforms used by these stakeholders, it will limit their ability to use the application and could result in user frustration which will impact the work of the tutor company and educators, as well as limit return business from the students. Compatibility issues will cause errors and crashes, and limit the number of users who can access the program thereby constraining its success.
+Why it's a constraint: The project must meet the minimum requirements and function as intended.
 
 Performance requirements:
-- Constraint: The application may not meet performance requirements due to limited resources available. The application should be able to handle a large number of users at one time without slowing down or crashing.
-- How it's a constraint: If the application cannot handle high volumes of users, it could lead to frustration among users.
-- Why it's a constraint: Ensuring high performance can improve user satisfaction and increase the application's potential for success.
+Constraint: The application may not meet performance requirements due to limited resources available. The application should be able to handle a large number of users at one time without slowing down or crashing.
+How it's a constraint: If the application cannot handle high volumes of users, it could lead to frustration among users.
+Why it's a constraint: Ensuring high performance can improve user satisfaction and increase the application's potential for success.
 
 Persistent storage and transactions:
-- Constraint: Limited storage and transaction capabilities may impact the functionality of the application, such as the ability to store and retrieve data reliably. The application should be able to store user data securely and ensure that transactions are processed accurately and reliably.
-- How it's a constraint: This constraint may lead to data loss, inconsistencies, or the inability to store certain types of data, impacting the functionality of the application.
-- Why it's a constraint: It should be addressed to ensure the application is able to store and retrieve data reliably, providing a better user experience.
+Constraint: Limited storage and transaction capabilities may impact the functionality of the application, such as the ability to store and retrieve data reliably. The application should be able to store user data securely and ensure that transactions are processed accurately and reliably.
+How it's a constraint: This constraint may lead to data loss, inconsistencies, or the inability to store certain types of data, impacting the functionality of the application.
+Why it's a constraint: It should be addressed to ensure the application is able to store and retrieve data reliably, providing a better user experience.
 
 Usability:
-- Constraint: Limited time and resources for usability testing may lead to a less intuitive user interface. The application should be easy to use and navigate, with clear instructions and intuitive interfaces.
-- How it's a constraint: If the application is difficult to use or navigate, it could lead to user frustration which could limit the usage of the application.
-- Why it's a constraint: It should be addressed to ensure the application is user-friendly and meets the needs of its target audience increasing its potential for success.
+Constraint: Limited time and resources for usability testing may lead to a less intuitive user interface. The application should be easy to use and navigate, with clear instructions and intuitive interfaces.
+How it's a constraint: If the application is difficult to use or navigate, it could lead to user frustration which could limit the usage of the application.
+Why it's a constraint: It should be addressed to ensure the application is user-friendly and meets the needs of its target audience increasing its potential for success.
 
 Budgets:
-- Constraint: Limited budget may impact the availability of certain tools or resources needed for the project. 
-- How it's a constraint: This constraint may limit the ability to purchase or access the necessary tools, impacting the overall quality of the project.
-- Why it's a constraint: It should be addressed to ensure the project meets the minimum requirements and can function as intended to showcase for potential future employers to see.
+Constraint: Limited budget may impact the availability of certain tools or resources needed for the project. 
+How it's a constraint: This constraint may limit the ability to purchase or access the necessary tools, impacting the overall quality of the project.
+Why it's a constraint: It should be addressed to ensure the project meets the minimum requirements and can function as intended to showcase for potential future employers to see.
 
 Time limitations:
-- Constraint: Limited time frame of six days may impact the ability to complete all necessary features or thoroughly test the application.
-- How it's a constraint: The project may not be able to meet all desired features or may contain bugs or errors that could have been avoided with more time for testing.
-- Why it's a constraint: It should be addressed to ensure the project is functional and meets the minimum requirements to showcase as a portfolio for potential future employers.
+Constraint: Limited time frame of six days may impact the ability to complete all necessary features or thoroughly test the application.
+How it's a constraint: The project may not be able to meet all desired features or may contain bugs or errors that could have been avoided with more time for testing.
+Why it's a constraint: It should be addressed to ensure the project is functional and meets the minimum requirements to showcase as a portfolio for potential future employers.
 
 Commentary: 
 The use of implementation constraint plans in project planning identifies and addresses the potential issues that could impact the development and success of an application. By addressing these constraints early on, the risks are minimised and then the project stays on track and within budget. 

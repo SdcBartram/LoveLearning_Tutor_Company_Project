@@ -101,20 +101,20 @@ student3.last_name = "Dumpty"
 student_repository.update(student3)
 
 # Add lesson to lessons table
-lesson1date = datetime(2023, 5, 23)
+lesson1date = datetime(2024, 5, 23)
 lesson1time = datetime.strptime('15:00', '%H:%M').time()
 lesson1 = Lesson(lesson1date, lesson1time, educator1,
                  subject1, learning_style1)
 lesson_repository.save(lesson1)
 
-lesson2date = datetime(2023, 5, 25)
+lesson2date = datetime(2024, 5, 25)
 lesson2time = datetime.strptime('09:00', '%H:%M').time()
 lesson2 = Lesson(lesson2date, lesson2time, educator2,
                  subject2, learning_style2)
 lesson_repository.save(lesson2)
 
 # update a lesson
-lesson2.lesson2date = (2023, 6, 25)
+lesson2.lesson2date = (2024, 6, 25)
 lesson_repository.update(lesson2)
 
 # select lesson by id

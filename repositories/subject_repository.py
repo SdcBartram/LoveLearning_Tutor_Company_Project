@@ -18,7 +18,7 @@ def save(subject):
 def select_all():
     subjects = []
 
-    sql = "SELECT * FROM subjects"
+    sql = "SELECT * FROM subjects ORDER BY subject_name"
     results = run_sql(sql)
 
     for row in results:

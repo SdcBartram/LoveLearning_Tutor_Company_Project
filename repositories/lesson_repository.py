@@ -25,7 +25,7 @@ def save(lesson):
 def select_all():
     lessons = []
 
-    sql = "SELECT * FROM lessons"
+    sql = "SELECT * FROM lessons ORDER BY date"
     results = run_sql(sql)
 
     for row in results:
@@ -41,7 +41,7 @@ def select_all():
 def select_all_upcoming_lessons():
     lessons = []
 
-    sql = "SELECT * FROM lessons WHERE date > CURRENT_DATE OR (date = CURRENT_DATE AND time >= CURRENT_TIME)"
+    sql = "SELECT * FROM lessons WHERE date > CURRENT_DATE OR (date = CURRENT_DATE AND time >= CURRENT_TIME) ORDER BY date"
     results = run_sql(sql)
 
     for row in results:

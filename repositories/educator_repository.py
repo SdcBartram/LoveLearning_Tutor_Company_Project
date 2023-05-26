@@ -20,7 +20,7 @@ def save(educator):
 def select_all():
     educators = []
 
-    sql = "SELECT * FROM educators"
+    sql = "SELECT * FROM educators ORDER BY last_name"
     results = run_sql(sql)
 
     for row in results:

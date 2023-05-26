@@ -6,9 +6,6 @@
 <table>
     <tr>
         <th>
-            Lesson
-        </th>
-        <th>
             Date
         </th>
         <th>
@@ -26,8 +23,7 @@
     </tr>
     {% for lesson in lessons %}
     <tr>
-        <td><a href="/lessons/{{ lesson.id }}"> {{lesson.id}} </a></td>
-        <td> {{ lesson.date }}</td>
+        <td><a href="/lessons/{{ lesson.id }}"> {{ lesson.date }}</a></td>
         <td> {{ lesson.time }}</td>
         <td> {{ lesson.educator.first_name }} {{lesson.educator.last_name }}</td>
         <td> {{ lesson.subject.subject_name }}</td>
