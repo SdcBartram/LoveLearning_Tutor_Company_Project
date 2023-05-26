@@ -3,7 +3,9 @@
 ### Demo of application working:
  https://youtu.be/6mLSpm-u69c
 
- ![Title](/Planning/LOVE LEARNING PRESENTATION/1.jpg)
+
+![Title](/planning/LOVE%20LEARNING%20PRESENTATION/1.png)
+ ![Title](/Planning/LOVE LEARNING PRESENTATION/1.png)
 
 This project is designed to consolidate learning from weeks 1 - 4 on the CodeClan Software Development Course. It involves designing and building an app that focuses on the following objectives:
 
