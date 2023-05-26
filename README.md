@@ -53,7 +53,7 @@ After running the command, open your Chrome browser and navigate to http://local
 
 ## Sitemap
 
-![sitemap](Planning/Color Hunt Palette fed049007580282846d8ebe4.png)
+![sitemap](https://github.com/SdcBartram/CCw4d5_Tutor_Company_Project/blob/main/Planning/user_sitemap_tutor_company.png./planning/user_sitemap_tutor_company.png)
 
 
 
