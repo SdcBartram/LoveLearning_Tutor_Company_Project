@@ -1,5 +1,10 @@
 # Web Programming with Python - a Tutor Company Project
 
+### Demo of application working:
+ https://youtu.be/6mLSpm-u69c
+
+ ![Title](./planning/LOVE%20LEARNING%20PRESENTATION/1.jpg)
+
 This project is designed to consolidate learning from weeks 1 - 4 on the CodeClan Software Development Course. It involves designing and building an app that focuses on the following objectives:
 
 * Object oriented programming with Python
@@ -43,5 +48,15 @@ flask run
 ```
 
 After running the command, open your Chrome browser and navigate to http://localhost:4999/ to view the app.
+
+![homepage](/planning/homepage_screenshot.png)
+
+## Sitemap
+
+![sitemap](./planning/user_sitemap_tutor_company.png)
+
+
+
+
 
 
