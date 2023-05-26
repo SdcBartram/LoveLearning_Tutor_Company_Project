@@ -20,7 +20,7 @@
         <select id="educator" name="educator_id">
             {% for educator in all_educators %}
             <option value="{{ educator.id }}" {% if lesson.educator.id==educator.id %} selected="selected" {% endif %}>
-                {{ lesson.educator.first_name }} {{ lesson.educator.last_name }}
+                {{ educator.first_name }} {{ educator.last_name }}
             </option>
             {% endfor %}
         </select>
